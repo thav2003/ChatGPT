@@ -1,0 +1,4 @@
+{
+  "angular-app": "http://localhost:4201/remoteEntry.js",
+  "vue-app": "http://localhost:4176/assets/remoteEntry.js"
+}
