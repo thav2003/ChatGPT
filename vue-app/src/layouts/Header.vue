@@ -1,5 +1,5 @@
 <template>
-  <a-layout-header :style="{ background: '#fff', padding: 0 }">
+  <a-layout-header :style="{ background: '#fff', padding: 0, position: 'sticky', top: '0' }">
     <div
       class="sticky top-0 mb-1.5 flex items-center justify-between z-10 h-14 bg-white p-2 font-semibold dark:bg-gray-800"
     >
