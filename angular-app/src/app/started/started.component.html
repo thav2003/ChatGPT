@@ -1,0 +1,41 @@
+<div class="container-flud overflow-hidden">
+    <div class="row">
+    <div id="left-site" class="col-md-7 ">
+      <nav class="p-4 flex items-center justify-between">
+      <span class="flex text-lg font-bold">ChatBot</span>
+      <span class="m1-2">
+      <i class="fa-brands fa-reddit-alien"></i>
+    </span>
+  </nav>
+  <div class="left-content">
+    <div id="question-answer-container">
+      <div id="question" class="typing-text"></div>
+      <br>
+      <div id="answer" class="typing-text1"></div>
+    </div>
+  </div>
+    </div>
+    <div id="right-site" class="col-md-5 mx-auto  d-flex flex-column justify-content-center align-items-center">
+      <h2 class="">Get started</h2>
+  <div class="right-content">
+    <button class="login-btn" nzType="primary" style="font-size: 1.2em;"  >
+      <a  (click)="navigateToLogIn()">Log in</a>
+    </button>
+    <button class="signup-btn" nzType="primary" style="font-size: 1.2em;"  >
+      <a  (click)="navigateToSignUp()">Sign up</a>
+    </button>
+  </div>
+  <div class="bottom d-flex justify-content-center align-items-center mt-3">
+  <div class="mt-10 flex flex-col justify-center">
+    <i class="fa-brands fa-reddit-alien"></i>
+  </div>
+  <div>
+    <a class="cursor-pointer font-normal underline" href="#">Terms of use</a>
+    <span class="text-gray-600">|</span>
+    <a class="cursor-pointer font-normal underline" href="#">Privacy policy</a>
+  </div>
+  </div>
+    </div>
+  </div>
+  </div>
+  

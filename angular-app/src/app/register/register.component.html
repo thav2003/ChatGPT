@@ -1,0 +1,84 @@
+<header class="logo">
+    <i class="fa-brands fa-reddit-alien"></i>
+    </header>
+    <div class="body-container">
+      <div class="content">
+        <h1>Create your account</h1>
+        <div class="form-login">
+          <form [formGroup]="loginForm">
+            <div class="mb-3">
+              <label class="form-control-label" for="email_address"></label>
+              <input id="email_address" type="email" class="form-control email-input" placeholder="Email address" required
+                formControlName="email" />
+              <!-- Hiển thị lỗi nếu có -->
+    
+              <div class="error-message" *ngIf="
+                  loginForm.get('email')?.hasError('required') &&
+                  loginForm.get('email')?.touched
+                ">
+                <div class="error-wrapper">
+                  Email is required
+                  <span nz-icon nzType="exclamation" nzTheme="outline"></span>
+                </div>
+              </div>
+    
+    
+              <div class="error-message" *ngIf="
+                  loginForm.get('email')?.hasError('email') &&
+                  loginForm.get('email')?.touched
+                ">
+                <div class="error-wrapper">
+                  Please enter a valid email address
+                  <span nz-icon nzType="exclamation" nzTheme="outline"></span>
+                </div>
+              </div>
+    
+            </div>
+            <div class="mb-3">
+              <label class="form-control-label" for="password"></label>
+              <input id="password" type="password" class="form-control" placeholder="Password" required
+                formControlName="password" />
+              <!-- Hiển thị lỗi nếu có -->
+    
+              <div class="error-message" *ngIf="
+                  loginForm.get('password')?.hasError('required') &&
+                  loginForm.get('password')?.touched
+                ">
+                <div class="error-wrapper">
+                  Password is required
+                  <span nz-icon nzType="exclamation" nzTheme="outline"></span>
+                </div>
+              </div>
+            </div>
+            <button type="submit" (click)="onSubmitButtonClicked()" class="btn btn_continue">
+              Continue
+            </button>
+          </form>
+        </div>
+        <div class="alter-action">
+          Don't have an account? <a class="signup-button" (click)="navigateToLogIn()">Sign up</a>
+        </div>
+      <hr>
+        <!-- Đăng nhập khác -->
+        <div>
+          <form action="post">
+            <button type="submit" class="btn google-btn" data-provider="google">
+              <span class="google_img" data-provider="google"></span>
+              <span class="google_content">Continue with Google</span>
+            </button>
+          </form>
+          <form action="post">
+            <button type="submit" class="btn microsoft-btn" data-provider="windowslive">
+              <span class="microsoft_img" data-provider="windowslive"></span>
+              <span>Continue with Microsoft Account</span>
+            </button>
+          </form>
+          <form action="post">
+            <button type="submit" class="btn apple-btn" data-provider="apple">
+              <span class="apple_img" data-provider="apple"></span>
+              <span class="apple_content">Continue with Apple</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>

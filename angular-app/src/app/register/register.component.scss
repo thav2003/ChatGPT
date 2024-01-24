@@ -1,0 +1,286 @@
+
+header.logo {
+    text-align: center;
+    padding: 20px;
+    color: rgb(157, 121, 194); 
+  }
+
+  .logo i {
+    font-size: 5em;
+    color: rgb(157, 121, 194);  
+  }
+  
+  .body-container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .button{
+    color: #10a37f;
+  }
+
+  .mb-3 .btn{
+    background-color: #10a37f; 
+    color: white;
+  }
+
+  .mb-3 .btn:hover{
+    background-color: #0c8564;
+    color: white;
+  }
+  .content {
+    text-align: center;
+    background-color: #fff; 
+    padding: 20px;
+    max-width: 350px; 
+    margin-top: 9vh;
+  }
+
+  .form-login {
+    margin-top: 5px;
+  }
+
+  .mb-3 {
+    margin-bottom: 10px;
+  }
+  
+
+  .alter-action {
+    margin-top: 10px;
+    color: #777; 
+  }
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 10px; 
+  }
+  
+  .btn:hover {
+    background-color: #f8f8f8;
+    border-color: #bbb;
+  }
+
+  .btn.btn_continue {
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+      background-color: #10a37f;
+      color: white;
+      transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .btn.btn_continue:hover {
+    background-color: #0c8564;
+  }
+    .btn.btn_continue:active {
+    background-color: #0a6a52;
+  }
+
+
+  .content h1{
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .form-login .mb-3 {
+    margin-left: 5px;
+  }
+
+  .form-login .btn {
+    margin-top: 10px;
+  }
+  
+  .form-login .btn-light {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .form-login .btn-light span {
+    margin-right: 10px; 
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, transform 0.3s ease; 
+  }
+  
+  .form-control:hover {
+    transform: scale(1.02); 
+  }
+  
+  .form-control:focus {
+    border-color: #10a37f;
+    outline: none;
+    box-shadow: 0 0 5px rgba(16, 163, 127, 0.5);
+    transform: scale(1.02); 
+  }
+  
+  .form-control-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #10a37f;
+    font-size: 12px;
+    transform: translateY(-50%);
+    transition: top 0.3s, font-size 0.3s, color 0.3s, transform 0.3s;
+  }
+  
+  .form-control:hover + .form-control-label,
+  .form-control:focus + .form-control-label,
+  .form-control:valid + .form-control-label {
+    top: -8;
+    font-size: 10px;
+    color: #10a37f;
+    transform: translateY(-50%) translateX(-50%);
+  }
+  
+  .form-control-label::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 100%;
+    height: 2px;
+    background-color: #10a37f;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:hover + .form-control-label::after,
+  .form-control:focus + .form-control-label::after,
+  .form-control:valid + .form-control-label::after {
+    height: 100%;
+    bottom: 0;
+  }
+
+  .form-login .forgot-password {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .form-login .forgot-password a {
+    color: #10a37f;
+    text-decoration: none;
+  }
+  
+  .form-login .forgot-password a:hover {
+    text-decoration: underline;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .error-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; 
+  }
+  .signup-button{
+    color: #10a37f;
+  }
+  .signup-button:hover {
+    text-decoration: underline; 
+  }
+
+/* Style cho nút Google */
+.google-btn,
+.microsoft-btn,
+.apple-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.google-btn:hover,
+.microsoft-btn:hover,
+.apple-btn:hover {
+  background-color: #f8f8f8;
+  border-color: #bbb;
+}
+
+/* Style cho ảnh Google */
+.google_img  {
+  background-image: url('../../assets/google.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Khoảng cách giữa ảnh và văn bản */
+}
+
+.microsoft_img {
+  background-image: url('../../assets/microsoft.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Khoảng cách giữa ảnh và văn bản */
+}
+
+.apple_img  {
+  background-image: url('../../assets/apple.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px; /* Khoảng cách giữa ảnh và văn bản */
+}
+
+/* Nếu bạn muốn thay đổi màu sắc văn bản */
+.google-btn span,
+.microsoft-btn span,
+.apple-btn span {
+  color: #333;
+}
+
+/* Nếu bạn muốn thay đổi màu sắc icon */
+.google-btn:hover .google_img,
+.microsoft-btn:hover .microsoft_img ,
+.apple-btn:hover .apple_img  {
+  filter: invert(42%) sepia(80%) saturate(2475%) hue-rotate(174deg) brightness(88%) contrast(97%);
+}
+
+/* Nếu bạn muốn thay đổi màu sắc khi nút được nhấn */
+.google-btn:active,
+.microsoft-btn:active,
+.apple-btn:active {
+  background-color: #eee;
+}
+
+
+
+  
+ 
