@@ -1,10 +1,13 @@
-export const conversations = [
+export const conversationsData = [
   [
     {
       title: 'Fix Xcode active directory'
     },
     {
       title: 'Host Component Angular Vue'
+    },
+    {
+      title: 'Fix PyTorch stft error'
     }
   ],
   [

@@ -13,7 +13,10 @@ export default {
         'token-surface-primary': '#202123',
         'token-surface-secondary': '#c5c5d2',
         'token-surface-tertiary': '#ececf1',
-        'token-border-light': 'rgba(217,217,227,.1)'
+        'token-border-light': 'rgba(217,217,227,.1)',
+        'token-border-medium': 'rgba(217,217,227,.15)',
+        'token-border-heavy': 'rgba(217,217,227,.2)',
+        'token-border-xheavy': 'rgba(217,217,227,.25)'
       }
     }
   },

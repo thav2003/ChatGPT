@@ -2,7 +2,7 @@
   <div class="w-full pt-2 md:pt-0 border-white/20 md:border-transparent md:w-[calc(100%-.5rem)]">
     <form class="stretch mx-2 flex flex-row gap-3 last:mb-2 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl">
       <div class="relative flex h-full flex-1 items-stretch md:flex-col">
-        <div>
+        <!-- <div>
           <div class="h-full flex ml-1 md:w-full md:m-auto md:mb-4 gap-0 md:gap-2 justify-center">
             <div class="grow">
               <div
@@ -163,7 +163,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="flex w-full items-center">
           <div
             class="overflow-hidden [&:has(textarea:focus)]:border-token-border-xheavy [&:has(textarea:focus)]:shadow-[0_2px_6px_rgba(0,0,0,.05)] flex flex-col w-full dark:border-token-border-heavy flex-grow relative border border-token-border-heavy dark:text-white rounded-2xl bg-white dark:bg-gray-800 shadow-[0_0_0_2px_rgba(255,255,255,0.95)] dark:shadow-[0_0_0_2px_rgba(52,53,65,0.95)]"

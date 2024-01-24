@@ -8,9 +8,9 @@
       <div class="flex-col flex-1 transition-opacity duration-500 -mr-2 pr-2 overflow-y-auto">
         <div class="sticky left-0 right-0 top-0 z-20 bg-black pt-3.5">
           <div class="pb-0.5 last:pb-0" tabindex="0">
-            <a
+            <router-link
               class="group flex h-10 items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary"
-              href="/"
+              :to="{ name: 'Home' }"
               ><div class="h-7 w-7 flex-shrink-0">
                 <div
                   class="gizmo-shadow-stroke relative flex h-full items-center justify-center rounded-full bg-white text-black"
@@ -52,7 +52,7 @@
                       ></path>
                     </svg></button
                 ></span></div
-            ></a>
+            ></router-link>
           </div>
         </div>
         <div class="flex flex-col gap-2 pb-2 text-gray-100 text-sm">
@@ -69,15 +69,15 @@
                 <ol>
                   <li class="relative z-[15]" data-projection-id="4" style="opacity: 1; height: auto">
                     <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/a8ebc54d-74dd-41fa-ba71-b3bd3a3d0823"
+                      <router-link
+                        :to="{ name: 'Conservation', params: { id: 'a8ebc54d-74dd-41fa-ba71-b3bd3a3d0823' } }"
                         class="flex items-center gap-2 p-2 hover:text-gray-100"
                         ><div class="relative grow overflow-hidden whitespace-nowrap">
                           Python SSL Installation Error
                           <div
                             class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
                           ></div></div
-                      ></a>
+                      ></router-link>
                       <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
                         <button
                           id="radix-:r1l:"
@@ -142,15 +142,15 @@
                 <ol>
                   <li class="relative" data-projection-id="7" style="opacity: 1; height: auto">
                     <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
+                      <router-link
+                        :to="{ name: 'Conservation', params: { id: 'c04096e0-f785-4b19-a77b-3f7d16a27f6f' } }"
                         class="flex items-center gap-2 p-2 hover:text-gray-100"
                         ><div class="relative grow overflow-hidden whitespace-nowrap">
                           Fix Xcode active directory.
                           <div
                             class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
                           ></div></div
-                      ></a>
+                      ></router-link>
                       <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
                         <button
                           id="radix-:r1s:"
@@ -1608,34 +1608,34 @@
         </div>
       </div>
       <div class="flex flex-col pt-2 empty:hidden border-white/20">
-        <a
-          class="flex min-h-[44px] py-1 items-center gap-3 text-white cursor-pointer text-sm hover:text-white hover:bg-token-surface-primary rounded-lg px-2"
-          ><span class="flex w-full flex-row flex-wrap-reverse justify-between"
-            ><div class="flex items-center gap-2">
-              <span
-                class="flex h-7 w-7 items-center justify-center rounded-full border border-token-border-light bg-black"
-                ><svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon-sm shrink-0"
+        <div class="flex w-full items-center">
+          <div class="grow">
+            <div class="group relative" data-headlessui-state="">
+              <button
+                id="headlessui-menu-button-:rf:"
+                class="flex w-full items-center gap-2 rounded-lg p-2 text-sm hover:bg-gray-100 hover:bg-token-surface-primary group-ui-open:bg-gray-100 group-ui-open:bg-token-surface-primary hover:bg-token-surface-primary group-ui-open:bg-gray-800 group-ui-open:bg-token-surface-primary"
+                type="button"
+                @click="naviagte('/feedback-export')"
+              >
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center overflow-hidden rounded-full">
+                    <div class="relative flex">
+                      <ImportOutlined
+                        class="rounded-sm"
+                        :style="{ color: 'white', width: '32px', height: '32px', fontSize: '32px' }"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="relative -top-px grow -space-y-px overflow-hidden text-ellipsis whitespace-nowrap text-left text-white"
                 >
-                  <path
-                    d="M8.78158 8.60266L9.8188 5.49098C10.037 4.83634 10.963 4.83634 11.1812 5.49098L12.2184 8.60266C12.7187 10.1035 13.8965 11.2813 15.3973 11.7816L18.509 12.8188C19.1637 13.037 19.1637 13.963 18.509 14.1812L15.3973 15.2184C13.8965 15.7187 12.7187 16.8965 12.2184 18.3973L11.1812 21.509C10.963 22.1637 10.037 22.1637 9.8188 21.509L8.78158 18.3973C8.28128 16.8965 7.10354 15.7187 5.60266 15.2184L2.49098 14.1812C1.83634 13.963 1.83634 13.037 2.49098 12.8188L5.60266 11.7816C7.10354 11.2813 8.28128 10.1035 8.78158 8.60266Z"
-                    fill="currentColor"
-                  ></path>
-                  <path
-                    d="M17.1913 3.69537L17.6794 2.23105C17.7821 1.92298 18.2179 1.92298 18.3206 2.23105L18.8087 3.69537C19.0441 4.40167 19.5983 4.9559 20.3046 5.19133L21.769 5.67944C22.077 5.78213 22.077 6.21787 21.769 6.32056L20.3046 6.80867C19.5983 7.0441 19.0441 7.59833 18.8087 8.30463L18.3206 9.76895C18.2179 10.077 17.7821 10.077 17.6794 9.76895L17.1913 8.30463C16.9559 7.59833 16.4017 7.0441 15.6954 6.80867L14.231 6.32056C13.923 6.21787 13.923 5.78213 14.231 5.67944L15.6954 5.19133C16.4017 4.9559 16.9559 4.40167 17.1913 3.69537Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <div class="flex flex-col">Renew Plus</div>
+                  <div class="font-semibold">Export</div>
+                </div>
+              </button>
             </div>
-          </span>
-        </a>
+          </div>
+        </div>
         <div class="flex w-full items-center">
           <div class="grow">
             <div class="group relative" data-headlessui-state="">
@@ -1677,4 +1677,12 @@
     </nav>
   </a-layout-sider>
 </template>
-<script lang="ts" setup></script>
+
+<script lang="ts" setup>
+  import { ImportOutlined } from '@ant-design/icons-vue'
+  import { useRouter } from 'vue-router'
+  const router = useRouter()
+  const naviagte = (path: string) => {
+    router.push(path)
+  }
+</script>

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CommonLayout from '../layouts/CommonLayout.vue'
+import LayoutA from '../layouts/LayoutA.vue'
 const routes = [
   {
     path: '/',
@@ -11,7 +12,13 @@ const routes = [
     path: '/c/:id',
     name: 'Conservation',
     meta: { layout: CommonLayout },
-    component: () => import(/* webpackChunkName: "about" */ '../views/Conversation.vue')
+    component: () => import(/* webpackChunkName: "conservation" */ '../views/Conversation.vue')
+  },
+  {
+    path: '/feedback-export',
+    name: 'FeedbackExport',
+    meta: { layout: LayoutA },
+    component: () => import(/* webpackChunkName: "feedbackExport" */ '../views/FeedbackExport.vue')
   }
 ]
 
