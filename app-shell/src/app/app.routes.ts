@@ -3,7 +3,7 @@ import { WebComponentWrapper, WebComponentWrapperOptions } from '@angular-archit
 import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     component: WebComponentWrapper,
     data: {
       type: 'manifest',
@@ -13,7 +13,17 @@ export const routes: Routes = [
     } as WebComponentWrapperOptions
   },
   {
-  path: '',
+    path: 'c/:id',
+    component: WebComponentWrapper,
+    data: {
+      type: 'manifest',
+      remoteName: 'vue-app',
+      exposedModule: './web-components',
+      elementName: 'vue-element'
+    } as WebComponentWrapperOptions
+  },
+  {
+  path: 'angular-app',
   loadComponent: () =>
        loadRemoteModule({
            type: 'manifest',
@@ -21,5 +31,5 @@ export const routes: Routes = [
            exposedModule: './Component'
        })
       .then((m) =>  m.AppComponent),
-  }
+  },
 ];
