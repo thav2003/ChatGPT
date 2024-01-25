@@ -14,11 +14,11 @@ runTask((packageManager) => {
   logger.info(`******* Run script with ${packageManager} ********`);
 
   const commands = [
-    // {
-    //   command: `${packageManager} install && ${packageManager} start`,
-    //   name: "assets-server",
-    //   cwd: path.resolve(__dirname, "../share/assets"),
-    // },
+    {
+      command: `${packageManager} install && ${packageManager} start`,
+      name: "assets-server",
+      cwd: path.resolve(__dirname, "../share/assets"),
+    },
     createStartCommand(packageManager, "app-shell", "../app-shell"),
     createStartCommand(packageManager, "angular-app", "../angular-app"),
     createStartCommand(packageManager, "vue-app", "../vue-app"),
