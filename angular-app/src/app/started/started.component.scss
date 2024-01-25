@@ -2,7 +2,7 @@
     height: 100vh;
     background-color: #00002e;
   }
-  
+
   #left-site .title,
   #left-site i{
     color: #d292ff;
@@ -20,15 +20,15 @@
   #right-site {
     background-color: black;
     padding: 20px;
-  
+
   }
-  
+
   #right-site h2 {
     color: white;
     font-size: 2.4em;
     font-weight: bold;
   }
-  
+
   .login-btn,
   .signup-btn {
     background-color: #3c46ff;
@@ -40,33 +40,33 @@
     transition: background-color 0.3s ease;
     margin: 5px;
     cursor: pointer;
-    
+
   }
-  
+
   .login-btn:hover,
   .signup-btn:hover {
     background-color: #0091ff;
   }
-  
-  
+
+
   #right-site i {
     color: white;
   }
-  
+
   #right-site a {
-    color: #fff; 
+    color: #fff;
     margin: 0 10px;
   }
-  
+
   #right-site .text-gray-600 {
-    color: #888; 
+    color: #888;
   }
-  
+
   #right-site span.nz-icon {
-    color: white; 
-    font-size: 3em; 
+    color: white;
+    font-size: 3em;
   }
-  
+
   .left-content {
     height: 100%;
     display: flex;
@@ -76,12 +76,12 @@
     margin-left: 25px;
     padding-bottom: 10em;
   }
-  
+
   #question-answer-container {
     text-align: center;
     margin-top: 50px;
   }
-  
+
   .typing-text {
     color: #d292ff;
     overflow: hidden;
@@ -102,7 +102,7 @@
     font-weight: 500;
     font-size: 30px;
   }
-  
+
   @keyframes typing {
     from {
       width: 0;

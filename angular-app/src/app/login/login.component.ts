@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavigateService } from '../navigate.service';
 @Component({
-  selector: 'app-root',
+  selector: 'app-login',
   standalone: true,
   imports: [CommonModule,RouterOutlet, ReactiveFormsModule],
   templateUrl: './login.component.html',
@@ -13,13 +14,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class LoginComponent {
    loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private navigateService: NavigateService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
-  
+
   onSubmitButtonClicked() {
     if (this.loginForm.valid) {
       console.log('Form is valid. Navigating...');
@@ -41,7 +42,7 @@ export class LoginComponent {
   }
   navigateToSignUp() {
     // Chuyển hướng đến trang đăng ký
-    this.router.navigate(['/register']);
+    this.navigateService.navigate('/register');
   }
 
 }

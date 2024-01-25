@@ -4,16 +4,16 @@ import { RegisterComponent } from './register/register.component';
 import { StartedComponent } from './started/started.component';
 
 export const routes: Routes = [
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'register',
-        component: RegisterComponent
-    },
-    {
-        path: '',
-        component: StartedComponent
-    }
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'started',
+    component: StartedComponent
+  }
 ];

@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NavigateService } from '../navigate.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-started',
   standalone: true,
   imports: [CommonModule, RouterOutlet, NzIconModule, NzLayoutModule, NzMenuModule],
   templateUrl: './started.component.html',
   styleUrls: ['./started.component.scss']
 })
 export class StartedComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private navigateService: NavigateService) {}
   questionsAndAnswers = [
     { question: "What is your name?", answer: "My name is John." },
     { question: "Where are you from?", answer: "I am from New York." },
@@ -53,12 +54,12 @@ export class StartedComponent implements OnInit {
 
   navigateToSignUp() {
     // Chuyển hướng đến trang đăng ký
-    this.router.navigate(['/register']);
+    this.navigateService.navigate('/register');
   }
 
   navigateToLogIn() {
     // Chuyển hướng đến trang đăng ký
-    this.router.navigate(['/login']);
+    this.navigateService.navigate('/login');
   }
 }
 
