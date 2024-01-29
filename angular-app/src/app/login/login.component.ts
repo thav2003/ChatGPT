@@ -18,11 +18,16 @@ export class LoginComponent {
   counterValue: number | undefined;
   counterSubscription = new Subscription();
 
-  constructor(private fb: FormBuilder, private navigateService: NavigateService, private cdr: ChangeDetectorRef) {
+  constructor(
+    private fb: FormBuilder, 
+    private navigateService: NavigateService, 
+    private cdr: ChangeDetectorRef, 
+    ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+    
   }
 
   onSubmitButtonClicked() {
@@ -35,13 +40,13 @@ export class LoginComponent {
         next:(response) => {
           // Xử lý kết quả đăng nhập ở đây
           windowStore.saveUser(response);
-
           // Sau khi đăng nhập thành công, có thể thực hiện các thao tác khác như chuyển hướng trang
           this.navigateService.navigate('/');
-        },
+        }, 
         error:(error) => {
           console.error('Đăng nhập thất bại:', error);
           // Xử lý lỗi đăng nhập ở đây (hiển thị thông báo lỗi, v.v.)
+          alert(`Cannot login, error: ${error.message}`);
         }
       });
     } else {
