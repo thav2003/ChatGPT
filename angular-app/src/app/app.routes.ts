@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { StartedComponent } from './started/started.component';
+import {  VerifyMailComponent } from './verification/verification.component';
 
 export const routes: Routes = [
   {
@@ -15,5 +16,9 @@ export const routes: Routes = [
   {
     path: 'started',
     component: StartedComponent
-  }
+  },
+   {
+    path: 'verification',
+    component: VerifyMailComponent
+   }
 ];

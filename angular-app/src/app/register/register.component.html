@@ -50,6 +50,38 @@
                 </div>
               </div>
             </div>
+            <div class="mb-3">
+              <label class="form-control-label" for="confirm_password"></label>
+              <input id="confirm_password" type="password" class="form-control" placeholder="Confirm Password" required
+                formControlName="confirm_password" />
+              <!-- Hiển thị lỗi nếu có -->
+              <div class="error-message" *ngIf="
+                  loginForm.get('confirm_password')?.hasError('required') &&
+                  loginForm.get('confirm_password')?.touched 
+                ">
+                <div class="error-wrapper">
+                  Confirm Password is required
+                  <span nz-icon nzType="exclamation" nzTheme="outline"></span>
+                </div>
+              </div>
+              
+              <div class="error-message" *ngIf="
+                  loginForm.get('confirm_password')?.value &&
+                  loginForm.get('confirm_password')?.value !== loginForm.get('password')?.value
+                ">
+                <div class="error-wrapper">
+                  Passwords do not match
+                  <span nz-icon nzType="exclamation" nzTheme="outline"></span>
+                </div>
+              </div>
+              <div class="error-message" *ngIf="
+                  loginForm.get('confirm_password')?.value &&
+                  loginForm.get('confirm_password')?.value !== loginForm.get('password')?.value 
+                ">
+
+              </div>
+
+            </div>
             <button type="submit" (click)="onSubmitButtonClicked()" class="btn btn_continue">
               Continue
             </button>

@@ -17,18 +17,37 @@ export class RegisterComponent {
   constructor(private fb: FormBuilder, private navigateService: NavigateService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      confirm_password: ['', Validators.required]
     });
   }
 
   onSubmitButtonClicked() {
     if (this.loginForm.valid) {
+      const password = this.loginForm.get('password')?.value;
+      const confirm_password = this.loginForm.get('confirm_password')?.value;
+      const userId = 2;
+      const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzA2NTIwMzE2LCJleHAiOjE3MDY1MjIxMTZ9.aVJ8NsCyWF_DFzasvFuIuUThiBam6WsEgIYpFzFrqMQSUcn4KGTPGP5CQDGPt1JPufR7J7InTXtmiAFEiLuvbw'; // Thay đổi token thực tế
+      
+      if (!confirm_password) {
+        // Handle empty confirm password
+        console.error('Confirm Password is required');
+        return;
+      }
+  
+      if (password !== confirm_password) {
+        // Handle password mismatch
+        console.error('Passwords do not match');
+        return;
+      }
+  
       console.log('Form is valid. Navigating...');
       // Example: this.router.navigate(['/dashboard']);
     } else {
       // If the form is invalid, mark all controls as touched to display error messages.
       this.markFormGroupTouched(this.loginForm);
     }
+    alert("Register sucessfully! Please check your mail");
   }
 
   markFormGroupTouched(formGroup: FormGroup) {
