@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavigateService } from '../navigate.service';
+import windowStore from '../../../../share/store/store';
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -24,30 +25,39 @@ export class RegisterComponent {
 
   onSubmitButtonClicked() {
     if (this.loginForm.valid) {
+      const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
       const confirm_password = this.loginForm.get('confirm_password')?.value;
-      const userId = 2;
-      const token = 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxIiwiaWF0IjoxNzA2NTIwMzE2LCJleHAiOjE3MDY1MjIxMTZ9.aVJ8NsCyWF_DFzasvFuIuUThiBam6WsEgIYpFzFrqMQSUcn4KGTPGP5CQDGPt1JPufR7J7InTXtmiAFEiLuvbw'; // Thay đổi token thực tế
-      
+
       if (!confirm_password) {
         // Handle empty confirm password
         console.error('Confirm Password is required');
         return;
       }
-  
+
       if (password !== confirm_password) {
         // Handle password mismatch
         console.error('Passwords do not match');
         return;
       }
-  
-      console.log('Form is valid. Navigating...');
+
+
+      windowStore.register({ email, password, confirmPassword:confirm_password }).subscribe({
+        next:(response) => {
+          console.log(response)
+          alert("Register sucessfully! Please check your mail");
+        },
+        error:(error) => {
+          console.error('Đăng kí thất bại:', error);
+          // Xử lý lỗi đăng nhập ở đây (hiển thị thông báo lỗi, v.v.)
+          alert(`Cannot login, error: ${error.message}`);
+        }
+      });
       // Example: this.router.navigate(['/dashboard']);
     } else {
       // If the form is invalid, mark all controls as touched to display error messages.
       this.markFormGroupTouched(this.loginForm);
     }
-    alert("Register sucessfully! Please check your mail");
   }
 
   markFormGroupTouched(formGroup: FormGroup) {

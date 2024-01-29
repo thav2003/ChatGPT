@@ -7,7 +7,8 @@ import { UserService } from '../services/verification.service';
 @Component({
   selector: 'app-verify-mail',
   templateUrl: './verification.component.html',
-  styleUrls: ['./verification.component.scss']
+  styleUrls: ['./verification.component.scss'],
+  standalone: true,
 })
 export class VerifyMailComponent implements OnInit {
   userId!: number;

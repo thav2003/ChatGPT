@@ -58,7 +58,7 @@
         <div class="flex flex-col gap-2 pb-2 text-gray-100 text-sm">
           <div>
             <span>
-              <div class="relative mt-5" style="height: auto; opacity: 1">
+              <div v-if="today.length > 0" class="relative mt-5" style="height: auto; opacity: 1">
                 <div data-projection-id="3" style="opacity: 1">
                   <h3
                     class="h-9 pb-2 pt-3 px-2 text-xs font-medium text-ellipsis overflow-hidden break-all bg-black text-gizmo-gray-600"
@@ -67,13 +67,19 @@
                   </h3>
                 </div>
                 <ol>
-                  <li class="relative z-[15]" data-projection-id="4" style="opacity: 1; height: auto">
+                  <li
+                    v-for="conversation in today"
+                    :key="conversation.id"
+                    class="relative z-[15]"
+                    data-projection-id="4"
+                    style="opacity: 1; height: auto"
+                  >
                     <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
                       <router-link
-                        :to="{ name: 'Conservation', params: { id: 'a8ebc54d-74dd-41fa-ba71-b3bd3a3d0823' } }"
+                        :to="{ name: 'Conservation', params: { id: conversation.id } }"
                         class="flex items-center gap-2 p-2 hover:text-gray-100"
                         ><div class="relative grow overflow-hidden whitespace-nowrap">
-                          Python SSL Installation Error
+                          {{ conversation.conversationName }}
                           <div
                             class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
                           ></div></div
@@ -131,7 +137,7 @@
                   </li>
                 </ol>
               </div>
-              <div class="relative mt-5" style="height: auto; opacity: 1">
+              <div v-if="yesterday.length > 0" class="relative mt-5" style="height: auto; opacity: 1">
                 <div data-projection-id="6" style="opacity: 1">
                   <h3
                     class="h-9 pb-2 pt-3 px-2 text-xs font-medium text-ellipsis overflow-hidden break-all bg-black text-gizmo-gray-600"
@@ -140,13 +146,19 @@
                   </h3>
                 </div>
                 <ol>
-                  <li class="relative" data-projection-id="7" style="opacity: 1; height: auto">
+                  <li
+                    v-for="conversation in yesterday"
+                    :key="conversation.id"
+                    class="relative"
+                    data-projection-id="7"
+                    style="opacity: 1; height: auto"
+                  >
                     <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
                       <router-link
-                        :to="{ name: 'Conservation', params: { id: 'c04096e0-f785-4b19-a77b-3f7d16a27f6f' } }"
+                        :to="{ name: 'Conservation', params: { id: conversation.id } }"
                         class="flex items-center gap-2 p-2 hover:text-gray-100"
                         ><div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
+                          {{ conversation.conversationName }}
                           <div
                             class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
                           ></div></div
@@ -204,7 +216,7 @@
                   </li>
                 </ol>
               </div>
-              <div class="relative mt-5" style="height: auto; opacity: 1">
+              <div v-if="previous7Days.length > 0" class="relative mt-5" style="height: auto; opacity: 1">
                 <div style="opacity: 1">
                   <h3
                     class="h-9 pb-2 pt-3 px-2 text-xs font-medium text-ellipsis overflow-hidden break-all bg-black text-gizmo-gray-600"
@@ -213,1341 +225,23 @@
                   </h3>
                 </div>
                 <ol>
-                  <li class="relative" style="opacity: 1; height: auto">
+                  <li
+                    v-for="conversation in previous7Days"
+                    :key="conversation.id"
+                    class="relative"
+                    style="opacity: 1; height: auto"
+                  >
                     <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
+                      <router-link
+                        :to="{ name: 'Conservation', params: { id: conversation.id } }"
                         class="flex items-center gap-2 p-2 hover:text-gray-100"
                       >
                         <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
+                          {{ conversation.conversationName }}
                           <div
                             class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
                           ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
-                      <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
-                        <button
-                          id="radix-:r1s:"
-                          class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          type="button"
-                          aria-haspopup="menu"
-                          aria-expanded="false"
-                          data-state="closed"
-                        >
-                          <span class="" data-state="closed"
-                            ><svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12ZM10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12ZM17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                        <span class="" data-state="closed">
-                          <button
-                            class="flex items-center justify-center text-white transition hover:text-token-text-secondary radix-state-open:text-token-text-secondary"
-                          >
-                            <svg
-                              width="18"
-                              height="18"
-                              viewBox="0 0 18 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="icon-md"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M3.62188 3.07918C3.87597 2.571 4.39537 2.25 4.96353 2.25H13.0365C13.6046 2.25 14.124 2.571 14.3781 3.07918L15.75 5.82295V13.5C15.75 14.7426 14.7426 15.75 13.5 15.75H4.5C3.25736 15.75 2.25 14.7426 2.25 13.5V5.82295L3.62188 3.07918ZM13.0365 3.75H4.96353L4.21353 5.25H13.7865L13.0365 3.75ZM14.25 6.75H3.75V13.5C3.75 13.9142 4.08579 14.25 4.5 14.25H13.5C13.9142 14.25 14.25 13.9142 14.25 13.5V6.75ZM6.75 9C6.75 8.58579 7.08579 8.25 7.5 8.25H10.5C10.9142 8.25 11.25 8.58579 11.25 9C11.25 9.41421 10.9142 9.75 10.5 9.75H7.5C7.08579 9.75 6.75 9.41421 6.75 9Z"
-                                fill="currentColor"
-                              />
-                            </svg>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="relative" style="opacity: 1; height: auto">
-                    <div class="group relative rounded-lg active:opacity-90 hover:bg-token-surface-primary">
-                      <a
-                        href="/c/c04096e0-f785-4b19-a77b-3f7d16a27f6f"
-                        class="flex items-center gap-2 p-2 hover:text-gray-100"
-                      >
-                        <div class="relative grow overflow-hidden whitespace-nowrap">
-                          Fix Xcode active directory.
-                          <div
-                            class="absolute bottom-0 right-0 top-0 bg-gradient-to-l to-transparent w-8 from-black from-0% group-hover:w-20 group-hover:from-token-surface-primary group-hover:from-60%"
-                          ></div></div
-                      ></a>
+                      ></router-link>
                       <div class="absolute bottom-0 right-0 top-0 items-center gap-1.5 pr-2 hidden group-hover:flex">
                         <button
                           id="radix-:r1s:"
@@ -1680,9 +374,73 @@
 
 <script lang="ts" setup>
   import { ImportOutlined } from '@ant-design/icons-vue'
+  import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
   import { useRouter } from 'vue-router'
+  import windowStore from '../../../share/store/store'
+  import { tap } from 'rxjs'
+  export interface User {
+    id: number
+    email: string
+    password: string
+    fullName: string
+    emailVerified: boolean
+    isActive: boolean
+  }
+
+  export interface Conversation {
+    id: number
+    userId: User
+    conversationName: string
+    isActive: boolean
+    createdAt: string
+  }
   const router = useRouter()
   const naviagte = (path: string) => {
     router.push(path)
   }
+
+  const today = ref<Conversation[]>([])
+  const yesterday = ref<Conversation[]>([])
+  const previous7Days = ref<Conversation[]>([])
+  const previous30Days = ref<Conversation[]>([])
+
+  const conservation = ref<Conversation[]>([])
+
+  let conservationSubscription = windowStore.createSubscription()
+
+  onMounted(() => {
+    conservationSubscription = windowStore.conservations$.pipe(tap((c) => (conservation.value = c))).subscribe()
+    getListConservation()
+  })
+  onBeforeUnmount(() => {
+    conservationSubscription.unsubscribe()
+  })
+  const getListConservation = () => windowStore.getListConservation()
+
+  watch(conservation, (current) => {
+    const currentDate = new Date()
+    today.value = []
+    yesterday.value = []
+    previous7Days.value = []
+    previous30Days.value = []
+    current.forEach((conversation: Conversation) => {
+      const createdAt = new Date(conversation.createdAt)
+      const timeDifference = currentDate.getDate() - createdAt.getDate()
+      const daysDifference = timeDifference / (1000 * 60 * 60 * 24)
+
+      if (daysDifference === 0) {
+        today.value.push(conversation)
+      } else if (daysDifference === 1) {
+        yesterday.value.push(conversation)
+      } else if (daysDifference <= 7) {
+        previous7Days.value.push(conversation)
+      } else if (daysDifference <= 30) {
+        previous30Days.value.push(conversation)
+      }
+    })
+    today.value.reverse()
+    yesterday.value.reverse()
+    previous7Days.value.reverse()
+    previous30Days.value.reverse()
+  })
 </script>

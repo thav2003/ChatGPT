@@ -19,30 +19,28 @@ export class LoginComponent {
   counterSubscription = new Subscription();
 
   constructor(
-    private fb: FormBuilder, 
-    private navigateService: NavigateService, 
-    private cdr: ChangeDetectorRef, 
+    private fb: FormBuilder,
+    private navigateService: NavigateService,
+    private cdr: ChangeDetectorRef,
     ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
-    
+
   }
 
   onSubmitButtonClicked() {
     if (this.loginForm.valid || true) {
       const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
-      console.log(email)
-      console.log(password)
       windowStore.login({ email, password }).subscribe({
         next:(response) => {
           // Xử lý kết quả đăng nhập ở đây
-          windowStore.saveUser(response);
+          windowStore.saveUser(response.data);
           // Sau khi đăng nhập thành công, có thể thực hiện các thao tác khác như chuyển hướng trang
           this.navigateService.navigate('/');
-        }, 
+        },
         error:(error) => {
           console.error('Đăng nhập thất bại:', error);
           // Xử lý lỗi đăng nhập ở đây (hiển thị thông báo lỗi, v.v.)
