@@ -1,14 +1,13 @@
-<!-- verify-mail.component.html -->
+<body>
 <div class="verify-mail-container">
   <ng-container *ngIf="isLoading; else resultSection">
     <div class="loading-indicator">
-      <!-- Thêm biểu tượng loading tại đây -->
       Loading...
     </div>
   </ng-container>
 
   <ng-template #resultSection>
-    <div *@if="verificationResult === 'success'; else errorSection">
+    <div *ngIf="verificationResult === 'success'; else errorSection">
       <!-- Thông báo thành công -->
       <h2>Verification Successful!</h2>
       <p>Your account has been successfully verified.</p>
@@ -25,3 +24,4 @@
     </ng-template>
   </ng-template>
 </div>
+</body>
