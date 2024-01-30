@@ -1,25 +1,49 @@
-/* Add your custom styles for loading, success, and error containers here */
-.loading-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
-  
-  .success-container, .error-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  }
-  
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.verify-mail-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.loading-indicator {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  color: #555;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
